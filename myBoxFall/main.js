@@ -1,6 +1,7 @@
 title = "SpaceJumpDeluxe";
 
-description = `
+description = `Tap to jump
+Hold to jump higher
 `;
 
 characters = [
