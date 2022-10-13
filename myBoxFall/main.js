@@ -1,4 +1,4 @@
-title = "SpaceJump";
+title = "SpaceJumpDeluxe";
 
 description = `
 `;
@@ -24,7 +24,9 @@ const G = {
 options = { 
 	viewSize: {x:G.WIDTH, y:G.HEIGHT},
 	theme: "dark",
-	isReplayEnabled: true
+	isReplayEnabled: true,
+	seed: 30,
+	isPlayingBgm: true
 };
 
 /**
