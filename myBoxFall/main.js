@@ -122,14 +122,14 @@ function update() {
 	});
 	// draw obstacles
 	obst.forEach((o) => {
-		o.pos.x -= o.speed;
+		o.pos.x -= (o.speed * difficulty);
 		o.pos.wrap(0, G.WIDTH, 0, G.HEIGHT);
 		color("blue");
 		box(o.pos, o.sizeX, o.sizeY);
 	});
 	//draw top Obstacles
 	topObst.forEach((o) => {
-		o.pos.x -= o.speed;
+		o.pos.x -= (o.speed * difficulty);
 		o.pos.wrap(0, G.WIDTH, 0, G.HEIGHT);
 		color("blue");
 		box(o.pos, o.sizeX, o.sizeY);
@@ -171,7 +171,7 @@ function update() {
 
 	// keep the character moving foward if they are not on the ground or touching an obstacle
 	} else if (!(char("a", player.pos).isColliding.rect.blue) && player.pos.x < G.WIDTH * 0.6) {
-		player.pos.x += ObstSpeed / 4;
+		player.pos.x += (ObstSpeed / 4) * difficulty;
 		particle(
             player.pos.x, // x coordinate
             player.pos.y, // y coordinate
