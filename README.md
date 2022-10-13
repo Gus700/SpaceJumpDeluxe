@@ -1,9 +1,11 @@
-# BoxFall
+#SPACE JUMP DELUXE!
 
-Avoid the falling boxes
+todo 
 
-To Do
-- Adjust # of boxes
-- Anims for player
+add music 
+add sound effects
+add particles
+increase speed with difficutly
+add collectible
 
-## [Playable Link](https://mperina11.github.io/BoxFall/)
+## [Playable Link]()
