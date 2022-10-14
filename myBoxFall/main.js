@@ -34,6 +34,7 @@ options = {
 * @typedef {{
 * pos: Vector,
 * speed: number
+* colo: String
 * }} Star
 */
 
@@ -80,13 +81,30 @@ let ObstSpeed = 1;
 function update() {
 	// The init function running at startup
 	if (!ticks) {
+
+		this.c = [
+			"red",
+			"light_cyan",
+			"green",
+			"light_red",
+			"light_green",
+			"yellow",
+			"light_blue",
+			"purple",
+			"light_yellow",
+			"cyan",
+			"light_purple",
+			"black"
+		];
+
 		//initialize the stars
-		stars = times(20, () => {
+		stars = times(60, () => {
 			const posX = rnd(0, G.WIDTH);
 			const posY = rnd(0, G.HEIGHT * 0.7);
 			return {
 				pos: vec(posX, posY),
-				speed: rnd(G.STAR_SPEED_MIN, G.STAR_SPEED_MAX)
+				speed: rnd(G.STAR_SPEED_MIN, G.STAR_SPEED_MAX),
+				colo: this.c[rndi(0,10)]
 			};
 		});
 		// initialize the obstacles
@@ -117,9 +135,14 @@ function update() {
 	// update for the stars that were created above
 	stars.forEach((s) => {
 		s.pos.x -= s.speed;
+		if(s.pos.x <= 0){
+			s.pos.y += rndi(-5,5);
+			s.speed = rnd(G.STAR_SPEED_MIN, G.STAR_SPEED_MAX);
+			s.colo = this.c[rndi(0,10)]
+		}
 		s.pos.wrap(0, G.WIDTH, 0, G.HEIGHT);
-		color("yellow");
-		box(s.pos, 1);
+		color(s.colo);
+		box(s.pos.x,s.pos.y, 1);
 	});
 	// draw obstacles
 	obst.forEach((o) => {
@@ -173,6 +196,7 @@ function update() {
 	// keep the character moving foward if they are not on the ground or touching an obstacle
 	} else if (!(char("a", player.pos).isColliding.rect.blue) && player.pos.x < G.WIDTH * 0.6) {
 		player.pos.x += (ObstSpeed / 4) * difficulty;
+		color(this.c[rndi(0,10)]);
 		particle(
             player.pos.x, // x coordinate
             player.pos.y, // y coordinate
