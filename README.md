@@ -1,10 +1,5 @@
 #SPACE JUMP DELUXE!
 
-todo 
-add music 
-add sound effects
-add particles
-increase speed with difficutly
-add collectible
+Press to jump, hold to jump higher!
 
-## [Playable Link]()
+## [Playable Link](https://gus700.github.io/SpaceJumpDeluxe/)
