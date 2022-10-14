@@ -1,4 +1,4 @@
-#SPACE JUMP DELUXE!
+### SPACE JUMP DELUXE!
 
 Press to jump, hold to jump higher!
 
